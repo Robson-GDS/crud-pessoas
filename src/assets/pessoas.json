@@ -1,0 +1,12 @@
+[
+  {
+    "id": "uq2e",
+    "name": "Alice",
+    "role": "admin",
+    "age": 32,
+    "email": "alice@alice.com",
+    "isActive": true,
+    "country": "USA",
+    "experience": "Senior"
+  }
+]
