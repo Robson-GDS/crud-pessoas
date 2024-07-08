@@ -38,7 +38,7 @@ export class PessoaFormComponent {
       email: [null, [Validators.email]],
       country: [null],
       experience: [null],
-      ativo: []
+      isActive: []
     });
   }
 

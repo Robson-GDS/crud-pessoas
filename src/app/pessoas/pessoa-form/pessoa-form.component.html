@@ -28,10 +28,10 @@
 
       <mat-form-field class="full-width">
         <mat-label>Status</mat-label>
-        <mat-select formControlName="ativo">
-          <mat-option value="null"> </mat-option>
-          <mat-option value="ativo">Ativo</mat-option>
-          <mat-option value="inativo">Inativo</mat-option>
+        <mat-select formControlName="isActive">
+          <mat-option [value]="null"> </mat-option>
+          <mat-option [value]="true">Ativo</mat-option>
+          <mat-option [value]="false">Inativo</mat-option>
         </mat-select>
       </mat-form-field>
     </form>
