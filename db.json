@@ -1,0 +1,64 @@
+{
+  "pessoas": [
+    {
+      "id": "uq2e",
+      "name": "Alice",
+      "role": "admin",
+      "age": 32,
+      "email": "alice@alice.com",
+      "isActive": true,
+      "country": "USA",
+      "experience": "Senior"
+    },
+    {
+      "id": "n9k5",
+      "name": "Bob",
+      "role": "developer",
+      "age": 28,
+      "email": "bob@bob.com",
+      "isActive": false,
+      "country": "Canada",
+      "experience": "Mid"
+    },
+    {
+      "id": "j3l8",
+      "name": "Carol",
+      "role": "designer",
+      "age": 26,
+      "email": "carol@carol.com",
+      "isActive": true,
+      "country": "UK",
+      "experience": "Junior"
+    },
+    {
+      "id": "5759",
+      "name": "teste",
+      "role": null,
+      "age": null,
+      "email": null,
+      "country": null,
+      "experience": null,
+      "ativo": null
+    },
+    {
+      "id": "4342",
+      "name": "teste",
+      "role": null,
+      "age": null,
+      "email": null,
+      "country": null,
+      "experience": null,
+      "ativo": "ativo"
+    },
+    {
+      "id": "e04e",
+      "name": "teste3",
+      "role": null,
+      "age": null,
+      "email": null,
+      "country": null,
+      "experience": null,
+      "ativo": "true"
+    }
+  ]
+}

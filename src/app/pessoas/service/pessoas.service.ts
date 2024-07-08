@@ -7,7 +7,8 @@ import { first, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class PessoasService {
-  private API = '/assets/pessoas.json'
+  // private API = '/assets/pessoas.json'
+  API = 'http://localhost:3000/pessoas';
 
   constructor(private httpClient: HttpClient) { }
 
