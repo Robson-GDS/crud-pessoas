@@ -8,5 +8,25 @@
     "isActive": true,
     "country": "USA",
     "experience": "Senior"
+  },
+  {
+    "id": "n9k5",
+    "name": "Bob",
+    "role": "developer",
+    "age": 28,
+    "email": "bob@bob.com",
+    "isActive": false,
+    "country": "Canada",
+    "experience": "Mid"
+  },
+  {
+    "id": "j3l8",
+    "name": "Carol",
+    "role": "designer",
+    "age": 26,
+    "email": "carol@carol.com",
+    "isActive": true,
+    "country": "UK",
+    "experience": "Junior"
   }
 ]

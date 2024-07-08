@@ -7,7 +7,7 @@ import { first, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class PessoasService {
-  private readonly API = '/assets/pessoas.json'
+  private API = '/assets/pessoas.json'
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,5 +17,10 @@ export class PessoasService {
       first(),
       tap(pessoas => console.log(pessoas))
     );
+  }
+
+  save(pessoa: IPessoa) {
+    // return this.httpClient.post<IPessoa>(this.API, pessoa).subscribe(result => console.log(result));
+    return this.httpClient.post<IPessoa>(this.API, pessoa);
   }
 }

@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-content>
+    <mat-toolbar color="primary">Editar Pessoa</mat-toolbar>
+    <form [formGroup]="form">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Role" formControlName="role">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Age" formControlName="age">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Email" formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Country" formControlName="country">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Experience" formControlName="experience">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="ativo">
+          <mat-option value="null"> </mat-option>
+          <mat-option value="ativo">Ativo</mat-option>
+          <mat-option value="inativo">Inativo</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+      <button mat-button (click)="onCancel()">Cancelar</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
