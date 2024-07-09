@@ -1,0 +1,71 @@
+<mat-table [dataSource]="pessoas" class="mat-elevation-z8">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let pessoa"> {{pessoa.id}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let pessoa"> {{pessoa.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Role Column -->
+  <ng-container matColumnDef="role">
+    <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+    <mat-cell *matCellDef="let pessoa"> {{pessoa.role}} </mat-cell>
+  </ng-container>
+
+  <!-- Age Column -->
+  <ng-container matColumnDef="age">
+    <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+    <mat-cell *matCellDef="let pessoa"> {{pessoa.age}} </mat-cell>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+    <mat-cell *matCellDef="let pessoa"> {{pessoa.email}} </mat-cell>
+  </ng-container>
+
+  <!-- IsActive Column -->
+  <ng-container matColumnDef="isActive">
+    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+    <mat-cell *matCellDef="let pessoa"> {{pessoa.isActive}} </mat-cell>
+  </ng-container>
+
+  <!-- Country Column -->
+  <ng-container matColumnDef="country">
+    <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+    <mat-cell *matCellDef="let pessoa"> {{pessoa.country}} </mat-cell>
+  </ng-container>
+
+  <!-- Experience Column -->
+  <ng-container matColumnDef="experience">
+    <mat-header-cell *matHeaderCellDef> Experience </mat-header-cell>
+    <mat-cell *matCellDef="let pessoa"> {{pessoa.experience}} </mat-cell>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>
+      <button mat-mini-fab color="accent" aria-label="Adicionar uma pessoa" (click)="onAdd()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let pessoa">
+      <button mat-icon-button color="primary" aria-label="Editar uma pessoa" class="add" (click)="onEdit(pessoa)">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" aria-label="Remover uma pessoa" class="add">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

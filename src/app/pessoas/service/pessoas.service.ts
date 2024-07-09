@@ -7,7 +7,6 @@ import { first, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class PessoasService {
-  // private API = '/assets/pessoas.json'
   API = 'http://localhost:3000/pessoas';
 
   constructor(private httpClient: HttpClient) { }
@@ -15,13 +14,15 @@ export class PessoasService {
   list() {
     return this.httpClient.get<IPessoa[]>(this.API)
     .pipe(
-      first(),
-      tap(pessoas => console.log(pessoas))
+      first()
     );
   }
 
-  save(pessoa: IPessoa) {
-    // return this.httpClient.post<IPessoa>(this.API, pessoa).subscribe(result => console.log(result));
+  findById(id: string) {
+    return this.httpClient.get<IPessoa>(`${this.API}/${id}`);
+  }
+
+  save(pessoa: any) {
     return this.httpClient.post<IPessoa>(this.API, pessoa);
   }
 }
