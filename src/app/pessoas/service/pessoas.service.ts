@@ -23,6 +23,17 @@ export class PessoasService {
   }
 
   save(pessoa: any) {
+    if(pessoa.id) {
+      return this.update(pessoa);
+    }
+    return this.create(pessoa);
+  }
+
+  private create(pessoa: any) {
     return this.httpClient.post<IPessoa>(this.API, pessoa);
+  }
+
+  private update(pessoa: Partial<IPessoa>) {
+    return this.httpClient.put<IPessoa>(`${this.API}/${pessoa.id}`, pessoa);
   }
 }

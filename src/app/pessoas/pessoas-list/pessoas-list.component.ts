@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
 })
 export class PessoasListComponent {
   @Input() pessoas: Observable<IPessoa[]>;
-  displayedColumns = ['id', 'name', 'role', 'age', 'email', 'isActive', 'country', 'experience', 'actions'];
+  displayedColumns = ['name', 'role', 'age', 'email', 'isActive', 'country', 'experience', 'actions'];
 
   constructor(
     private pessoasService: PessoasService,

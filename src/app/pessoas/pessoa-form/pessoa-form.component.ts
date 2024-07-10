@@ -31,7 +31,7 @@ import { IPessoa } from '../interface/IPessoa';
 })
 export class PessoaFormComponent {
   form = new FormGroup({
-    // id: new FormControl(''),
+    id: new FormControl(''),
     name: new FormControl('', Validators.required),
     role: new FormControl('', Validators.required),
     age: new FormControl(0, [Validators.required, Validators.min(0)]),
@@ -49,7 +49,7 @@ export class PessoaFormComponent {
   ) {
     const pessoa: IPessoa = this.route.snapshot.data['pessoa'];
     this.form.setValue({
-      // id: pessoa.id,
+      id: pessoa.id,
       name: pessoa.name,
       role: pessoa.role,
       age: pessoa.age,

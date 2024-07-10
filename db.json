@@ -29,46 +29,6 @@
       "isActive": true,
       "country": "UK",
       "experience": "Junior"
-    },
-    {
-      "id": "3eee",
-      "name": "",
-      "role": "",
-      "age": 0,
-      "email": "",
-      "country": "",
-      "experience": "",
-      "isActive": false
-    },
-    {
-      "id": "9362",
-      "name": "",
-      "role": "",
-      "age": 0,
-      "email": "",
-      "country": "",
-      "experience": "",
-      "isActive": false
-    },
-    {
-      "id": "uq2e",
-      "name": "Alice atualizado",
-      "role": "admin",
-      "age": 32,
-      "email": "alice@alice.com",
-      "country": "USA",
-      "experience": "Senior",
-      "isActive": true
-    },
-    {
-      "id": "587a",
-      "name": "Segundo",
-      "role": "Dev",
-      "age": 18,
-      "email": "segundo@email.com",
-      "country": "Bra",
-      "experience": "Junior",
-      "isActive": true
     }
   ]
 }
