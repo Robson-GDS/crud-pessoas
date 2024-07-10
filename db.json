@@ -1,16 +1,6 @@
 {
   "pessoas": [
     {
-      "id": "uq2e",
-      "name": "Alice",
-      "role": "admin",
-      "age": 32,
-      "email": "alice@alice.com",
-      "isActive": true,
-      "country": "USA",
-      "experience": "Senior"
-    },
-    {
       "id": "n9k5",
       "name": "Bob",
       "role": "developer",
@@ -29,6 +19,16 @@
       "isActive": true,
       "country": "UK",
       "experience": "Junior"
+    },
+    {
+      "id": "d23f4fdc-9dc2-419d-bfc4-0552d805d59d",
+      "name": "cheetos Eterno",
+      "role": "Dono",
+      "age": 14,
+      "email": "cheetos@email.com",
+      "country": "Bra",
+      "experience": "Sennior",
+      "isActive": true
     }
   ]
 }
