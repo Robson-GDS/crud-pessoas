@@ -30,6 +30,7 @@ import { IPessoa } from '../interface/IPessoa';
   styleUrl: './pessoa-form.component.scss'
 })
 export class PessoaFormComponent {
+
   form = new FormGroup({
     id: new FormControl(''),
     name: new FormControl('', Validators.required),
