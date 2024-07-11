@@ -9,16 +9,6 @@
       "isActive": false,
       "country": "Canada",
       "experience": "Mid"
-    },
-    {
-      "id": "j3l8",
-      "name": "Carol",
-      "role": "designer",
-      "age": 26,
-      "email": "carol@carol.com",
-      "isActive": true,
-      "country": "UK",
-      "experience": "Junior"
     }
   ]
 }

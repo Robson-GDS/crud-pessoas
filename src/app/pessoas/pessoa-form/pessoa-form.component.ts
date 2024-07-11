@@ -78,7 +78,11 @@ export class PessoaFormComponent {
     const formValue = this.form.value;
     this.service.save(formValue as Partial<IPessoa>).subscribe(result => {
       console.log(result)
-      this.snackBar.open('Dados salvo com sucesso.', '', { duration: 3000});
+      this.snackBar.open('Dados salvo com sucesso.', '', { 
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: 'center'
+      });
       this.onCancel();
     })
   }

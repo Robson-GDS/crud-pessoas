@@ -1,14 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
 import { Observable } from 'rxjs';
 import { IPessoa } from '../interface/IPessoa';
 import { PessoasService } from '../service/pessoas.service';
 import { Router } from '@angular/router';
+import { ConfirmationDialogComponent } from '../shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-pessoas-list',
@@ -17,13 +19,15 @@ import { Router } from '@angular/router';
     MatIconModule,
     MatButtonModule,
     MatTableModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
   ],
   templateUrl: './pessoas-list.component.html',
   styleUrl: './pessoas-list.component.scss'
 })
 export class PessoasListComponent {
   @Input() pessoas: Observable<IPessoa[]>;
+  readonly dialog = inject(MatDialog);
   displayedColumns = ['name', 'role', 'age', 'email', 'isActive', 'country', 'experience', 'actions'];
 
   constructor(
@@ -47,11 +51,23 @@ export class PessoasListComponent {
   }
 
   onDelete(pessoa: IPessoa) {
-    this.pessoasService.delete(pessoa.id).subscribe(
-      () => {
-        this.refresh();
-        this.snackBar.open('Dados removidos com com sucesso.', '', { duration: 3000});
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Tem certeza que deseja excluir esse item?',
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if(result) {
+        this.pessoasService.delete(pessoa.id).subscribe(
+          () => {
+            this.refresh();
+            this.snackBar.open('Dados removidos com com sucesso.', '', { 
+              duration: 3000,
+              verticalPosition: 'top',
+              horizontalPosition: 'center'
+            });
+          }
+        );
       }
-    );
+    });
   }
 }
