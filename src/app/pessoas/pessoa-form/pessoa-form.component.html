@@ -4,26 +4,44 @@
     <form [formGroup]="form">
       <mat-form-field class="full-width">
         <input matInput placeholder="Nome" formControlName="name">
+        @if (form.get('name')?.invalid) {
+          <mat-error>{{errorMessage('name')}}</mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Role" formControlName="role">
+        @if (form.get('role')?.invalid) {
+          <mat-error>{{errorMessage('role')}}</mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Age" formControlName="age" type="number">
+        @if (form.get('age')?.invalid) {
+          <mat-error>{{errorMessage('age')}}</mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Email" formControlName="email">
+        @if (form.get('email')?.invalid) {
+          <mat-error>{{errorMessage('email')}}</mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Country" formControlName="country">
+        @if (form.get('country')?.invalid) {
+          <mat-error>{{errorMessage('country')}}</mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Experience" formControlName="experience">
+        @if (form.get('experience')?.invalid) {
+          <mat-error>{{errorMessage('experience')}}</mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field class="full-width">
@@ -33,10 +51,13 @@
           <mat-option [value]="true">Ativo</mat-option>
           <mat-option [value]="false">Inativo</mat-option>
         </mat-select>
+        @if (form.get('isActive')?.invalid) {
+          <mat-error>{{errorMessage('isActive')}}</mat-error>
+        }
       </mat-form-field>
     </form>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+      <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="form.invalid">Salvar</button>
       <button mat-button (click)="onCancel()">Cancelar</button>
     </mat-card-actions>
   </mat-card-content>

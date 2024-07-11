@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPessoa } from '../interface/IPessoa';
-import { first } from 'rxjs';
+import { first, Observable } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
@@ -23,14 +23,14 @@ export class PessoasService {
     return this.httpClient.get<IPessoa>(`${this.API}/${id}`);
   }
 
-  save(pessoa: any) {
+  save(pessoa: Partial<IPessoa>): Observable<IPessoa> {
     if(pessoa.id) {
       return this.update(pessoa);
     }
     return this.create(pessoa);
   }
 
-  private create(pessoa: any) {
+  private create(pessoa: Partial<IPessoa>) {
     return this.httpClient.post<IPessoa>(this.API, { ...pessoa, id: uuidv4() });
   }
 

@@ -33,10 +33,12 @@ export class PessoaFormComponent {
 
   form = new FormGroup({
     id: new FormControl(''),
-    name: new FormControl('', Validators.required),
+    name: new FormControl('', [Validators.required, 
+      Validators.minLength(5), 
+      Validators.maxLength(100)]),
     role: new FormControl('', Validators.required),
     age: new FormControl(0, [Validators.required, Validators.min(0)]),
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     country: new FormControl('', Validators.required),
     experience: new FormControl('', Validators.required),
     isActive: new FormControl(false, Validators.required),
@@ -62,7 +64,12 @@ export class PessoaFormComponent {
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe(result => {
+    if (this.form.invalid) {
+      return;
+    }
+    const formValue = this.form.value;
+    this.service.save(formValue as Partial<IPessoa>).subscribe(result => {
+      console.log(result)
       this.snackBar.open('Dados salvo com sucesso.', '', { duration: 3000});
       this.onCancel();
     })
@@ -70,5 +77,33 @@ export class PessoaFormComponent {
 
   onCancel() {
     this.location.back();
+  }
+
+  errorMessage(fieldName: string) {
+    const field = this.form.get(fieldName);
+
+    if(field?.hasError('required')) {
+      return 'Campo obrigatório';
+    }
+
+    if(field?.hasError('minlength')) {
+      const requiredLength: number = field.errors ? field.errors['minlength']['requiredLength'] : 5;
+      return `Tamanho mínimo do campo é ${requiredLength}`;
+    }
+
+    if(field?.hasError('maxlength')) {
+      const requiredLength: number = field.errors ? field.errors['maxlength']['requiredLength'] : 100;
+      return `Tamanho máximo do campo é ${requiredLength}`;
+    }
+
+    if (field?.hasError('min')) {
+      return 'A idade precisa ser positiva';
+    }
+
+    if (field?.hasError('email')) {
+      return 'É necessário entrar com um email válido';
+    }
+
+    return 'Campo Invalido';
   }
 }
