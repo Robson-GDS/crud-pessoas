@@ -12,6 +12,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { IPessoa } from '../interface/IPessoa';
+import { CountryService } from '../service/country.service';
+import { ICountry } from '../interface/ICountry';
 
 @Component({
   selector: 'app-pessoa-form',
@@ -30,6 +32,7 @@ import { IPessoa } from '../interface/IPessoa';
   styleUrl: './pessoa-form.component.scss'
 })
 export class PessoaFormComponent {
+  countries: ICountry[] = [];
 
   form = new FormGroup({
     id: new FormControl(''),
@@ -48,7 +51,8 @@ export class PessoaFormComponent {
     private service: PessoasService,
     private snackBar: MatSnackBar,
     private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private countryService: CountryService
   ) {
     const pessoa: IPessoa = this.route.snapshot.data['pessoa'];
     this.form.setValue({
@@ -60,6 +64,10 @@ export class PessoaFormComponent {
       country: pessoa.country,
       experience: pessoa.experience,
       isActive: pessoa.isActive
+    });
+
+    this.countryService.getCountries().subscribe((data: ICountry[]) => {
+      this.countries = data;
     });
   }
 

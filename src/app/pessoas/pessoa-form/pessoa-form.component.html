@@ -31,7 +31,14 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Country" formControlName="country">
+        <mat-label>País</mat-label>
+        <mat-select formControlName="country">
+          @for (country of countries; track country) {
+            <mat-option [value]="country.name.common">
+              {{ country.name.common }}
+            </mat-option>
+          }
+        </mat-select>
         @if (form.get('country')?.invalid) {
           <mat-error>{{errorMessage('country')}}</mat-error>
         }
