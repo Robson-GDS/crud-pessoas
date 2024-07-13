@@ -28,7 +28,7 @@ import { ConfirmationDialogComponent } from '../shared/confirmation-dialog/confi
 export class PessoasListComponent {
   @Input() pessoas: Observable<IPessoa[]>;
   readonly dialog = inject(MatDialog);
-  displayedColumns = ['name', 'role', 'age', 'email', 'isActive', 'country', 'experience', 'actions'];
+  displayedColumns = ['id', 'name', 'role', 'age', 'email', 'isActive', 'country', 'experience', 'actions'];
 
   constructor(
     private pessoasService: PessoasService,
